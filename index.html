@@ -118,6 +118,7 @@
             text-decoration: none;
             transition: transform 0.3s ease;
             letter-spacing: -0.03em;
+            cursor: pointer;
         }
         
         .logo:hover {
@@ -136,6 +137,7 @@
             font-weight: 500;
             position: relative;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
         
         .nav-links a::after {
@@ -232,6 +234,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
         
         .btn-primary {
@@ -254,6 +257,77 @@
         .btn-secondary:hover {
             background: var(--primary);
             color: white;
+        }
+        
+        /* Mascot Styles */
+        .mascot-container {
+            position: absolute;
+            bottom: 2rem;
+            right: 5%;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: bounceIn 1s ease-out 1.6s forwards;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.05);
+            }
+            80% {
+                transform: translateY(5px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .mascot-bunny {
+            width: 150px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .mascot-bunny:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .speech-bubble {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: var(--secondary);
+        }
+        
+        .mascot-container:hover .speech-bubble {
+            opacity: 1;
         }
         
         /* Floating Elements */
@@ -348,6 +422,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 5px 20px var(--shadow);
+            cursor: pointer;
         }
         
         .topic-card::before {
@@ -390,6 +465,64 @@
         .topic-card p {
             color: var(--text-light);
             line-height: 1.6;
+        }
+        
+        /* Vocab CTA Section */
+        .vocab-cta-section {
+            padding: 3rem 2rem;
+            background: var(--background);
+        }
+        
+        .vocab-cta {
+            background: var(--white);
+            border: 3px solid var(--secondary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vocab-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        .vocab-cta h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .vocab-cta p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .vocab-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .vocab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 196, 196, 0.4);
         }
         
         /* Testimonials Style Section */
@@ -563,75 +696,156 @@
             }
         }
         
-        /* Mascot Styles */
-        .mascot-container {
-            position: absolute;
-            bottom: 2rem;
-            right: 5%;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: bounceIn 1s ease-out 1.6s forwards;
+        /* Content Page Styles */
+        .content-header {
+            background: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary);
+            margin-top: 80px;
         }
         
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: translateY(50px) scale(0.8);
-            }
-            60% {
-                opacity: 1;
-                transform: translateY(-10px) scale(1.05);
-            }
-            80% {
-                transform: translateY(5px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .content-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
         
-        .mascot-bunny {
-            width: 150px;
-            height: auto;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-            transition: transform 0.3s ease;
+        .content-header p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .content-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        .content-section h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .content-section h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .content-section p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .content-section li {
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .tip-box {
+            background: var(--accent);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .tip-box p {
+            margin: 0;
+            color: var(--text-dark);
+        }
+        
+        .back-to-topics {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         
-        .mascot-bunny:hover {
-            transform: scale(1.1) rotate(5deg);
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(28, 28, 28, 0.2);
         }
         
-        .speech-bubble {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--secondary);
-            color: white;
-            padding: 0.5rem 1rem;
+        /* Vocab page specific */
+        .vocab-term {
+            background: var(--white);
             border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px var(--shadow);
         }
         
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 8px solid transparent;
-            border-top-color: var(--secondary);
+        .vocab-term h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
         
-        .mascot-container:hover .speech-bubble {
-            opacity: 1;
+        .vocab-example {
+            background: var(--accent);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--text-dark);
+        }
+        
+        /* About page */
+        .about-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 700px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        .about-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
         }
         
         /* Responsive adjustments */
@@ -645,6 +859,7 @@
             }
         }
         
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -670,6 +885,10 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .content-section {
+                padding: 2rem 1.5rem;
             }
         }
         
@@ -709,163 +928,549 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="#home" class="logo">AI.wtf</a>
+            <a onclick="showPage('home')" class="logo">AI.wtf</a>
             <ul class="nav-links">
-                <li><a href="#home">home</a></li>
-                <li><a href="#about">about me</a></li>
-                <li><a href="#topics">topics</a></li>
+                <li><a onclick="showPage('home')">home</a></li>
+                <li><a onclick="showPage('vocab')">vocab</a></li>
+                <li><a onclick="showPage('about')">about me</a></li>
                 <li><a href="#contact">let's collab</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="floating-element float-1">🧠</div>
-            <div class="floating-element float-2">🤖</div>
-            <div class="floating-element float-3">✨</div>
-            
-            <div class="hero-content">
-                <h1>AI doesn't have to be scary</h1>
-                <p class="subtitle">Learn AI, Python, and prompt engineering without the jargon</p>
-                <div class="cta-buttons">
-                    <a href="#topics" class="btn btn-primary">Start Learning <span>→</span></a>
-                    <a href="#about" class="btn btn-secondary">About Me</a>
-                </div>
-            </div>
-            
-            <div class="mascot-container">
-                <img src="https://i.imgur.com/YourBunnyImage.png" alt="Happy learning bunny" class="mascot-bunny">
-                <div class="speech-bubble">yay! let's learn AI together!</div>
-            </div>
-            
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </section>
-
-        <!-- Topics Section -->
-        <section class="topics" id="topics">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What You'll Learn</h2>
-                    <p>Pick a topic and let's dive in together</p>
-                </div>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <div class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="floating-element float-1">🧠</div>
+                <div class="floating-element float-2">🤖</div>
+                <div class="floating-element float-3">✨</div>
                 
-                <div class="topics-grid">
-                    <a href="#ai-fundamentals" class="topic-card" style="--i: 0;">
-                        <div class="topic-icon">🧠</div>
-                        <h3>AI Fundamentals</h3>
-                        <p>Understand how AI actually works without the math headaches</p>
-                    </a>
-                    
-                    <a href="#python" class="topic-card" style="--i: 1;">
-                        <div class="topic-icon">🐍</div>
-                        <h3>Python for AI</h3>
-                        <p>Just enough Python to make AI do cool things for you</p>
-                    </a>
-                    
-                    <a href="#dataviz" class="topic-card" style="--i: 2;">
-                        <div class="topic-icon">📊</div>
-                        <h3>Data Visualization</h3>
-                        <p>Turn boring spreadsheets into insights that wow</p>
-                    </a>
-                    
-                    <a href="#mcp" class="topic-card" style="--i: 3;">
-                        <div class="topic-icon">🔧</div>
-                        <h3>MCP Architecture</h3>
-                        <p>Connect Claude to your tools and unlock superpowers</p>
-                    </a>
-                    
-                    <a href="#prompts" class="topic-card" style="--i: 4;">
-                        <div class="topic-icon">💬</div>
-                        <h3>Prompt Engineering</h3>
-                        <p>Write prompts that get amazing results every time</p>
-                    </a>
-                    
-                    <a href="#claude" class="topic-card" style="--i: 5;">
-                        <div class="topic-icon">🤖</div>
-                        <h3>Using Claude</h3>
-                        <p>Master Claude for work and creative projects</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <div class="testimonial-grid">
-                <div class="testimonial-content">
-                    <h3>What people are saying</h3>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Finally, someone explains AI in a way that makes sense! I went from confused PM to AI-powered PM in just a few weeks."
-                        </p>
-                        <p class="testimonial-author">Sarah Chen • Product Manager</p>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "The Python basics section gave me confidence to actually start building things. No more intimidation!"
-                        </p>
-                        <p class="testimonial-author">Mike Rodriguez • Designer</p>
+                <div class="hero-content">
+                    <h1>AI doesn't have to be scary</h1>
+                    <p class="subtitle">Learn AI, Python, and prompt engineering without the jargon</p>
+                    <div class="cta-buttons">
+                        <a href="#topics" class="btn btn-primary">Start Learning <span>→</span></a>
+                        <a onclick="showPage('about')" class="btn btn-secondary">About Me</a>
                     </div>
                 </div>
                 
-                <div class="testimonial-image">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            📱
+                <div class="mascot-container">
+                    <img src="https://imgur.com/a/u9mnQ39" alt="Happy learning bunny" class="mascot-bunny">
+                    <div class="speech-bubble">yay! let's learn AI together!</div>
+                </div>
+                
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </section>
+
+            <!-- Vocab CTA Section -->
+            <section class="vocab-cta-section">
+                <div class="container">
+                    <div class="vocab-cta">
+                        <h3>🚨 First Time Here?</h3>
+                        <p>Before diving into the topics, check out our AI Vocabulary guide. It explains all the jargon in plain English!</p>
+                        <a onclick="showPage('vocab')" class="vocab-btn">Start with AI Vocab 101</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Topics Section -->
+            <section class="topics" id="topics">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>What You'll Learn</h2>
+                        <p>Pick a topic and let's dive in together</p>
+                    </div>
+                    
+                    <div class="topics-grid">
+                        <a onclick="showPage('ai-fundamentals')" class="topic-card" style="--i: 0;">
+                            <div class="topic-icon">🧠</div>
+                            <h3>AI Fundamentals</h3>
+                            <p>Understand how AI actually works without the math headaches</p>
+                        </a>
+                        
+                        <a onclick="showPage('python')" class="topic-card" style="--i: 1;">
+                            <div class="topic-icon">🐍</div>
+                            <h3>Python for AI</h3>
+                            <p>Just enough Python to make AI do cool things for you</p>
+                        </a>
+                        
+                        <a onclick="showPage('dataviz')" class="topic-card" style="--i: 2;">
+                            <div class="topic-icon">📊</div>
+                            <h3>Data Visualization</h3>
+                            <p>Turn boring spreadsheets into insights that wow</p>
+                        </a>
+                        
+                        <a onclick="showPage('mcp')" class="topic-card" style="--i: 3;">
+                            <div class="topic-icon">🔧</div>
+                            <h3>MCP Architecture</h3>
+                            <p>Connect Claude to your tools and unlock superpowers</p>
+                        </a>
+                        
+                        <a onclick="showPage('prompts')" class="topic-card" style="--i: 4;">
+                            <div class="topic-icon">💬</div>
+                            <h3>Prompt Engineering</h3>
+                            <p>Write prompts that get amazing results every time</p>
+                        </a>
+                        
+                        <a onclick="showPage('claude')" class="topic-card" style="--i: 5;">
+                            <div class="topic-icon">🤖</div>
+                            <h3>Using Claude</h3>
+                            <p>Master Claude for work and creative projects</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials">
+                <div class="testimonial-grid">
+                    <div class="testimonial-content">
+                        <h3>What people are saying</h3>
+                        
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "Finally, someone explains AI in a way that makes sense! I went from confused PM to AI-powered PM in just a few weeks."
+                            </p>
+                            <p class="testimonial-author">Sarah Chen • Product Manager</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "The Python basics section gave me confidence to actually start building things. No more intimidation!"
+                            </p>
+                            <p class="testimonial-author">Mike Rodriguez • Designer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-image">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                📱
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section" id="contact">
-            <div class="shape shape-1"></div>
-            <div class="cta-content">
-                <h2>Let's learn together</h2>
-                <p>Join the community and start your AI journey today</p>
-                
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/yourprofile" class="social-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="mailto:fabi@aiwtf.com" class="social-link">
-                        ✉️ Email
-                    </a>
+            <!-- CTA Section -->
+            <section class="cta-section" id="contact">
+                <div class="shape shape-1"></div>
+                <div class="cta-content">
+                    <h2>Let's learn together</h2>
+                    <p>Join the community and start your AI journey today</p>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/fabiolatamez" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:fabiolatamez@outlook.com" class="social-link">
+                            ✉️ Email
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p>Made with 💜 by Fabi • © 2025 AI.wtf</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- AI Vocabulary Page -->
+    <div id="vocab-page" class="page">
+        <div class="content-header">
+            <h1>📖 AI Vocabulary 101</h1>
+            <p>All the AI jargon explained in plain English - read this first!</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="vocab-term">
+                <h3>AI (Artificial Intelligence)</h3>
+                <p>Simply put, AI is teaching computers to do tasks that normally require human intelligence. It's not about creating robot overlords - it's about making computers smart enough to recognize patterns, make decisions, and solve problems.</p>
+                <div class="vocab-example">
+                    Example: When Netflix recommends shows you might like, that's AI analyzing your watching patterns.
                 </div>
             </div>
-        </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>Made with 💜 by Fabi • © 2025 AI.wtf</p>
-        </footer>
+            <div class="vocab-term">
+                <h3>Algorithm</h3>
+                <p>Think of an algorithm as a recipe. It's a step-by-step set of instructions that tells the computer exactly what to do. Just like a recipe tells you how to bake a cake, an algorithm tells a computer how to solve a problem.</p>
+                <div class="vocab-example">
+                    Example: A sorting algorithm is like instructions for organizing your bookshelf - "Compare two books, put the one that comes first alphabetically on the left, repeat until done."
+                </div>
+            </div>
+
+            <div class="vocab-term">
+                <h3>Model</h3>
+                <p>An AI model is like a student who has studied really hard. After looking at thousands of examples (training), the model has learned patterns and can now make predictions about new things it hasn't seen before.</p>
+                <div class="vocab-example">
+                    Example: A model trained on cat photos can look at a new photo and say "That's probably a cat!" because it learned what cats look like.
+                </div>
+            </div>
+
+            <div class="vocab-term">
+                <h3>LLM (Large Language Model)</h3>
+                <p>LLMs are AI systems trained on massive amounts of text from the internet. They've read so much that they can generate human-like text, answer questions, and even write code. ChatGPT and Claude are LLMs.</p>
+                <div class="vocab-example">
+                    Example: When you ask Claude to explain something, it's using its training on millions of texts to generate a helpful response.
+                </div>
+            </div>
+
+            <div class="vocab-term">
+                <h3>Prompt</h3>
+                <p>A prompt is what you type to tell an AI what you want. It's like giving instructions to a really smart assistant. The better your prompt, the better the AI's response.</p>
+                <div class="vocab-example">
+                    Example: "Write a professional email declining a meeting" is a prompt. Adding details like tone and context makes it better.
+                </div>
+            </div>
+
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Fundamentals Page -->
+    <div id="ai-fundamentals-page" class="page">
+        <div class="content-header">
+            <h1>🧠 AI Fundamentals</h1>
+            <p>Let's demystify AI together - no PhD required!</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="content-section">
+                <h2>What the heck is AI anyway?</h2>
+                <p>Okay, let's start with the basics. AI (Artificial Intelligence) is basically teaching computers to do things that normally require human intelligence. Think of it like training a really smart assistant who never gets tired.</p>
+                
+                <p>Here's the thing - AI isn't magic. It's just really good pattern matching. Remember when you learned to recognize dogs vs cats as a kid? AI does the same thing, but with millions of examples and way faster.</p>
+                
+                <h3>The AI Family Tree 🌳</h3>
+                <p>Not all AI is created equal. Here's the family:</p>
+                
+                <p><strong>1. Traditional AI (The Grandparent)</strong><br>
+                This is rule-based AI. Like "IF email contains 'prince' AND 'money' THEN it's probably spam." Simple but effective for specific tasks.</p>
+                
+                <p><strong>2. Machine Learning (The Parent)</strong><br>
+                Instead of writing rules, we show the AI examples and let it figure out the patterns. It's like teaching by showing, not telling.</p>
+                
+                <p><strong>3. Deep Learning (The Cool Kid)</strong><br>
+                This uses neural networks (inspired by brains!) to learn really complex patterns. This is what powers most modern AI magic.</p>
+                
+                <p><strong>4. Large Language Models (The Prodigy)</strong><br>
+                These are like ChatGPT and Claude - they've read basically the entire internet and can generate human-like text. They're the reason we're having an AI revolution right now.</p>
+                
+                <div class="tip-box">
+                    <p><strong>💡 Pro tip:</strong> When someone says "AI," they usually mean Large Language Models these days. But now you know better!</p>
+                </div>
+            </div>
+            
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Python Page -->
+    <div id="python-page" class="page">
+        <div class="content-header">
+            <h1>🐍 Python Basics for AI</h1>
+            <p>Just enough Python to be dangerous (in a good way)</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="content-section">
+                <h2>Why Python?</h2>
+                <p>Python is like the English of programming languages - it's readable, forgiving, and everyone in AI speaks it. If AI tools were instruments, Python would be the guitar - versatile and everyone wants to play it!</p>
+                
+                <h2>Your First Python Code</h2>
+                <p>Let's start with the absolute basics. Python reads almost like English:</p>
+                
+                <div class="code-block">
+# This is a comment - Python ignores it
+name = "Fabi"  # Store your name in a variable
+print(f"Hello, {name}! Welcome to AI")  # Say hello!
+                </div>
+                
+                <p>See? That wasn't so bad! Let's break it down:</p>
+                <ul>
+                    <li><code>#</code> starts a comment (notes for humans)</li>
+                    <li><code>=</code> stores values in variables (like labeled boxes)</li>
+                    <li><code>print()</code> shows stuff on screen</li>
+                    <li><code>f"text {variable}"</code> lets you mix text and variables</li>
+                </ul>
+                
+                <div class="tip-box">
+                    <p><strong>💡 Pro tip:</strong> The best way to learn Python is to type code yourself, not just read it. Even if you make mistakes, that's how you learn!</p>
+                </div>
+            </div>
+            
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Viz Page -->
+    <div id="dataviz-page" class="page">
+        <div class="content-header">
+            <h1>📊 Data Visualization with Python</h1>
+            <p>Turn numbers into stories that even your CEO will understand</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="content-section">
+                <h2>Why Visualize Data?</h2>
+                <p>Because nobody wants to stare at spreadsheets! A good chart can reveal insights in seconds that would take hours to find in raw data. Plus, pretty charts make you look like a data wizard 🧙‍♀️</p>
+                
+                <h2>The Magic Library: Plotly</h2>
+                <p>Forget matplotlib (too ugly) and seaborn (too complicated). Plotly makes interactive, beautiful charts with minimal code. It's like the Instagram filter for your data!</p>
+                
+                <h3>Your First Chart</h3>
+                <div class="code-block">
+import plotly.express as px
+
+# Some fake data
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+users = [1000, 1500, 2300, 3100, 4500]
+
+# Create a line chart in ONE LINE
+fig = px.line(x=months, y=users, title='Our Awesome Growth 🚀')
+fig.show()
+                </div>
+                
+                <p>That's it! You just made an interactive chart that you can hover over, zoom, and save as an image.</p>
+                
+                <div class="tip-box">
+                    <p><strong>📈 Pro move:</strong> Always add titles and labels to your charts. Your future self (and your team) will thank you!</p>
+                </div>
+            </div>
+            
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MCP Page -->
+    <div id="mcp-page" class="page">
+        <div class="content-header">
+            <h1>🔧 MCP Architecture</h1>
+            <p>Connect Claude to your tools and unlock superpowers</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="content-section">
+                <h2>What's MCP?</h2>
+                <p>MCP (Model Context Protocol) is like giving Claude a set of tools and teaching it how to use them. Imagine Claude as a smart assistant who can now open your files, search your databases, and use your favorite apps!</p>
+                
+                <p>Think of it this way: Without MCP, Claude is like a brilliant consultant stuck in a conference room. With MCP, Claude can walk around your office and actually DO things.</p>
+                
+                <h2>The Big Picture 🖼️</h2>
+                <p>Here's how MCP works in simple terms:</p>
+                
+                <ol>
+                    <li><strong>Claude (The Brain):</strong> Understands what you want</li>
+                    <li><strong>MCP (The Nervous System):</strong> Connects Claude to tools</li>
+                    <li><strong>Tools (The Hands):</strong> Actually do the work</li>
+                </ol>
+                
+                <div class="tip-box">
+                    <p><strong>🚀 Power tip:</strong> Start with one tool and master it before adding more. Filesystem access alone is incredibly powerful!</p>
+                </div>
+            </div>
+            
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prompts Page -->
+    <div id="prompts-page" class="page">
+        <div class="content-header">
+            <h1>💬 Prompt Engineering</h1>
+            <p>The art of getting AI to do exactly what you want</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="content-section">
+                <h2>What's Prompt Engineering?</h2>
+                <p>It's basically learning how to talk to AI effectively. Think of it like giving directions - the clearer you are, the better the results. Bad prompt = confused AI. Good prompt = AI magic! ✨</p>
+                
+                <h2>The Anatomy of a Great Prompt</h2>
+                <p>Every great prompt has these ingredients:</p>
+                
+                <ol>
+                    <li><strong>Context:</strong> What's the situation?</li>
+                    <li><strong>Task:</strong> What do you want done?</li>
+                    <li><strong>Format:</strong> How should the output look?</li>
+                    <li><strong>Constraints:</strong> Any rules or limitations?</li>
+                </ol>
+                
+                <h3>Bad Prompt vs Good Prompt</h3>
+                
+                <div class="code-block">
+❌ Bad: "Write about dogs"
+
+✅ Good: "Write a 150-word beginner's guide to adopting a rescue dog,
+focusing on the first week at home. Use a friendly, encouraging tone
+and include 3 practical tips. Target audience: first-time dog owners."
+                </div>
+                
+                <p>See the difference? The good prompt tells the AI exactly what you need!</p>
+                
+                <div class="tip-box">
+                    <p><strong>💡 Pro tip:</strong> The more specific your format request, the more consistent your results. AI loves structure!</p>
+                </div>
+            </div>
+            
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Claude Page -->
+    <div id="claude-page" class="page">
+        <div class="content-header">
+            <h1>🤖 Using Claude</h1>
+            <p>Your AI coworker who never needs coffee breaks</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="content-section">
+                <h2>Meet Claude!</h2>
+                <p>Claude is Anthropic's AI assistant, and honestly? It's the best AI for actual work. While ChatGPT is great for quick tasks, Claude excels at complex reasoning, long documents, and nuanced understanding.</p>
+                
+                <h2>Claude's Superpowers 🦸</h2>
+                
+                <p><strong>1. Massive Context Window</strong><br>
+                Claude can read and remember up to 200,000 tokens (about 150,000 words). That's like feeding it an entire book!</p>
+                
+                <p><strong>2. Nuanced Understanding</strong><br>
+                Claude gets subtlety. It understands context, tone, and can pick up on things other AIs might miss.</p>
+                
+                <p><strong>3. Artifacts</strong><br>
+                Claude can create and edit documents, code, and other content in a separate panel. It's like having a collaborative workspace!</p>
+                
+                <div class="tip-box">
+                    <p><strong>💡 Pro tip:</strong> Claude loves context! The more background you provide, the better its responses will be tailored to your specific situation.</p>
+                </div>
+            </div>
+            
+            <div class="back-to-topics">
+                <a onclick="showPage('home')" class="back-btn">Back to Topics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="page">
+        <div class="content-header">
+            <h1>Hey, I'm Fabi! 👋</h1>
+            <p>The human behind AI.wtf</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="about-content">
+                <p>I'm on a mission to make AI accessible to everyone - not just the tech folks with computer science degrees.</p>
+                
+                <h2>Why I Built AI.wtf</h2>
+                <p>A few years ago, I was a PM who kept hearing about AI but felt totally lost. Every tutorial assumed I knew Python, understood neural networks, or had a PhD in math. I thought, "There has to be a better way!"</p>
+                
+                <p>So I learned it all the hard way - through trial, error, and a lot of "wtf" moments. Now I want to save you that journey and get you from confused to confident as fast as possible.</p>
+                
+                <h2>What Makes This Different</h2>
+                <p>I'm not a computer science professor or a machine learning engineer. I'm someone who uses AI to get actual work done - and I teach it the way I wish someone had taught me:</p>
+                
+                <ul>
+                    <li>No math required</li>
+                    <li>Focus on practical applications</li>
+                    <li>Real examples from real work</li>
+                    <li>Tools you can use today, not someday</li>
+                </ul>
+                
+                <h2>Let's Connect!</h2>
+                <p>I love hearing from people using AI.wtf! Whether you have questions, success stories, or just want to chat about AI, reach out on LinkedIn.</p>
+                
+                <div class="back-to-topics">
+                    <a onclick="showPage('home')" class="back-btn">Back to Home</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         // Remove loader after page loads
         window.addEventListener('load', function() {
             setTimeout(() => {
-                document.getElementById('loader').classList.add('fade-out');
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('fade-out');
+                }
             }, 1500);
         });
 
-        // Smooth scrolling
+        // Page navigation function
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            const selectedPage = document.getElementById(pageName + '-page');
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+                setTimeout(() => selectedPage.classList.add('active'), 10);
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Update URL hash
+            window.location.hash = pageName;
+            
+            return false; // Prevent default link behavior
+        }
+
+        // Handle initial page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // If it's a page navigation
+                if (href.includes('-page') || this.onclick) {
+                    return;
+                }
+                
+                // Otherwise, smooth scroll
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -884,12 +1489,14 @@
             });
         }, observerOptions);
 
-        // Observe all topic cards
-        document.querySelectorAll('.topic-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
+        // Observe all topic cards when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.topic-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease-out';
+                observer.observe(card);
+            });
         });
     </script>
 </body>
